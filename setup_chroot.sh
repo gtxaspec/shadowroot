@@ -50,6 +50,8 @@ mkdir /etc/schroot/shadowroot
 
 #Copy our fstab to the chroot config dir
 cp fstab /etc/schroot/shadowroot/fstab
+
+#Create these empty files we do not use so schroot does not complain.
 touch /etc/schroot/shadowroot/copyfiles
 touch /etc/schroot/shadowroot/nssdatabases
 
@@ -82,9 +84,9 @@ chmod +x /usr/local/bin/shadow-prod
 chmod +x /usr/local/bin/stop-shadow
 
 #Install icons for Window Managers
-cp icons/shadow.png /usr/share/icons/hicolor/48x48/apps/
-cp icons/shadow-preprod.png /usr/share/icons/hicolor/48x48/apps
-cp icons/shadow-testing.png /usr/share/icons/hicolor/48x48/apps
+cp /var/shadowroot/usr/share/icons/hicolor/0x0/apps/shadow.png /usr/share/icons/hicolor/48x48/apps/
+cp /var/shadowroot/usr/share/icons/hicolor/0x0/apps/shadow-preprod.png /usr/share/icons/hicolor/48x48/apps/
+cp /var/shadowroot/usr/share/icons/hicolor/0x0/apps/shadow-testing.png /usr/share/icons/hicolor/48x48/apps/
 
 #Copy menu entries for easy lauching
 cp *.desktop /usr/share/applications/

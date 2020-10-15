@@ -13,20 +13,20 @@ rm -f /usr/local/bin/shadow-alpha
 rm -f /usr/local/bin/shadow-prod
 rm -f /usr/local/bin/stop-shadow
 
-#remove icons
+#Remove icons
 
 rm -f /usr/share/icons/hicolor/48x48/apps/shadow.png
 rm -f /usr/share/icons/hicolor/48x48/apps/shadow-preprod.png
 rm -f /usr/share/icons/hicolor/48x48/apps/shadow-testing.png
 
-#remove shadow from schroot config dir
+#Remove shadow from schroot config dir
 
 rm -rf /etc/schroot/shadowroot
 
-#remove stuff from /etc/schroot/schroot.conf
+#remove chroot entry from schroot.conf
 sed -i '/shadowroot/,+8 d' /etc/schroot/schroot.conf
 
-#remove schroot
+#remove chroot working directory
 rm -rf /var/shadowroot
 
 #delete menu entries

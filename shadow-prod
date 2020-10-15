@@ -10,7 +10,7 @@ function schroot_init() {
 }
 
 
-#Make sure that we have root privileges to create chroot
+#Make sure that we have superuser privileges to begin the chroot session
 if [[ $UID != 0 ]]; then
     echo "Please run shadow with sudo:"
     echo "sudo $0 $*"

@@ -99,6 +99,23 @@ wget --no-check-certificate https://update.shadow.tech/launcher/testing/linux/ub
 #make clients executable
 chmod +x /home/shadow-user/AppImage/*.AppImage
 
+#Install Icons for Window Manager
+#Create directory for icons
+mkdir /usr/share/icons/hicolor/0x0/
+mkdir /usr/share/icons/hicolor/0x0/apps
+
+/home/shadow-user/AppImage/Shadow.AppImage --appimage-extract
+mv squashfs-root/usr/share/icons/hicolor/0x0/apps/shadow.png /usr/share/icons/hicolor/0x0/apps/
+rm -rf /root/squashfs-root/
+
+/home/shadow-user/AppImage/ShadowBeta.AppImage --appimage-extract
+mv squashfs-root/usr/share/icons/hicolor/0x0/apps/shadow-preprod.png /usr/share/icons/hicolor/0x0/apps/
+rm -rf /root/squashfs-root/
+
+/home/shadow-user/AppImage/ShadowAlpha.AppImage --appimage-extract
+mv squashfs-root/usr/share/icons/hicolor/0x0/apps/shadow-testing.png /usr/share/icons/hicolor/0x0/apps/
+rm -rf /root/squashfs-root/
+
 #create local directories
 mkdir -p /home/shadow-user/.config/
 mkdir -p /home/shadow-user/.config/pulse
@@ -107,3 +124,4 @@ mkdir -p /home/shadow-user/.local/share/keyrings/
 chown shadow-user:shadow-user -R /home/shadow-user
 
 #DONE!
+echo "Shadowroot installation complete, you may now run the client with: sudo shadow-prod"
