@@ -124,4 +124,3 @@ mkdir -p /home/shadow-user/.local/share/keyrings/
 chown shadow-user:shadow-user -R /home/shadow-user
 
 #DONE!
-echo "Shadowroot installation complete, you may now run the client with: sudo shadow-prod"
