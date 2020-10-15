@@ -18,3 +18,6 @@ with sudo or super-user privileges to run the shadow client using the schroot.
 
 Uninstall:
 run remove_chroot.sh with super-user privileges to remove the chroot and associates files.
+
+
+Thanks to @aar642 and the shadowcker (https://gitlab.com/aar642/shadowcker) project for the awesome work shadowroot was based off.
