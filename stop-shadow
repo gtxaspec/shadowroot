@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Killing streamer client"
+ps -A -o pid,cmd|grep 'Shadow --server' | grep -v grep |head -n 1 | awk '{print $1}' | xargs kill -9

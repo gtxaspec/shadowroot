@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=shadow-stable
+Exec=sudo /usr/local/bin/shadow-prod
+Icon=shadow.png
+GenericName=Shadow Client
+Comment=Play Games
+Categories=Network;FileTransfer;Game;
+Keywords=Games

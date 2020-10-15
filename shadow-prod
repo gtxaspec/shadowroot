@@ -1,0 +1,32 @@
+#!/bin/bash
+
+function schroot_init() {
+	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Beginning chroot session, session name:"
+	schroot --begin-session --chroot shadowroot --session-name shadow-prod
+	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Running Shadow in chroot"
+	schroot --run-session --chroot shadow-prod --directory /home/shadow-user -- /bin/su shadow-user -c "/home/shadow-user/AppImage/Shadow.AppImage --no-sandbox" 2>/dev/null
+	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Ending chroot session"
+	schroot --end-session --chroot shadow-prod
+}
+
+
+#Make sure that we have root privileges to create chroot
+if [[ $UID != 0 ]]; then
+    echo "Please run shadow with sudo:"
+    echo "sudo $0 $*"
+    exit 1
+else
+   echo -e "Welcome to \e[30;48;5;226mShadowRoot\e[0m!"
+   echo -e "\e[30;48;5;226mShadowRoot\e[0m: Loading, please wait..."
+   #File discriptor to display function's output to the console in real time
+   exec 3>&1
+   #Check for a client update, if there is, after patching is done, restart the client
+   if [[ $(schroot_init | tee /dev/fd/3) == *triggered* ]]; then
+       echo -e "\e[30;48;5;226mShadowRoot\e[0m: Update Found, restarting Shadow..."
+       schroot_init
+       exit 1;
+   fi
+       #Clean up the file discriptor, close it
+       exec 3>&-
+fi
+

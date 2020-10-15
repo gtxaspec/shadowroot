@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=shadow-alpha
+Exec=sudo /usr/local/bin/shadow-alpha
+Icon=shadow-testing.png
+Categories=Network;FileTransfer;Game;
+Keywords=Games
