@@ -11,12 +11,12 @@ echo nameserver 8.8.8.8 > /etc/resolv.conf
 echo nameserver 8.8.4.4 > /etc/resolv.conf
 
 #Install wget and nano and locales
+apt-get update && \
 apt-get install -y --no-install-recommends wget nano locales
 ##language-pack-en-base
 
 #Download software and updates
-apt-get update && \
-    apt-get install -y --no-install-recommends \
+apt-get install -y --no-install-recommends \
     dbus \
     fuse \
     gconf-service \
