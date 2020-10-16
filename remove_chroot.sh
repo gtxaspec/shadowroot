@@ -6,6 +6,11 @@ if [[ $UID != 0 ]]; then
     exit 1
 else
 
+#end chroot sessions before attempting to remove
+
+schroot --end-session --chroot shadow-prod
+schroot --end-session --chroot shadow-beta
+schroot --end-session --chroot shadow-alpha
 
 #Remove launcher shortcuts on host
 rm -f /usr/local/bin/shadow-beta
