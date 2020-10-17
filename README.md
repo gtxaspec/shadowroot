@@ -4,8 +4,9 @@
 
 ### Runs a shadow client in a (s)chroot.  Not using docker, no virtualization or containers.
 
-* Works on Arch/Fedora/Debian based distros.
+* Works on Arch/Fedora/Debian (x86 only) based distros.
 * Requires schroot and debootstrap packages
+* Not tested on chromebooks, don't try to run a chroot inside a chroot... yet.
 
 # Installation:
 - run ./setup_chroot.sh with super-user privileges to begin the installation.
