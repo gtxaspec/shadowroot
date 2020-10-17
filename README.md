@@ -31,7 +31,7 @@ Once installation is complete, look in your "Games" menu in your favorite window
 * Run ./remove_chroot.sh with super-user privileges to remove the chroot and associates files.
 
 #Why?
-* Running docker there is a slight cursor lag on my system, so as an alternative, I thought of a chroot!  Also using docker, Shadow would not output audio to my bluetooth speaker.  With Shadowroot, it works! (pulseaudio!!!)
+* Running docker there is a slight cursor lag on my system, so as an alternative, we jailed Shadow in a chroot!  Also using docker, Shadow would not output audio to my bluetooth speaker.  With Shadowroot, it works! (pulseaudio!)
 
 ## Thanks to @aar642 and the shadowcker (https://gitlab.com/aar642/shadowcker) project for the awesome work shadowroot was based off.
 
