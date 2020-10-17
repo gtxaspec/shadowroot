@@ -9,8 +9,12 @@
 * Not tested on chromebooks, don't try to run a chroot inside a chroot... yet.
 
 # Installation:
-- run ./setup_chroot.sh with super-user privileges to begin the installation.
-
+* run ./setup_chroot.sh with super-user privileges to begin the installation.
+  * This process will use your distributions package manager to download and install:
+    * schroot
+    * debootstrap
+  * Then it will proceed to download Ubuntu Bionic, all associated packages as well as the Shadow clients, creating a chroot located in /var/shadowroot
+  
 # Running:
 Once installation is complete, look in your "Games" menu in your favorite window manager, or in a terminal type:
 
