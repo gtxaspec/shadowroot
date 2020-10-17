@@ -27,3 +27,7 @@ Once installation is complete, look in your "Games" menu in your favorite window
 
 
 ## Thanks to @aar642 and the shadowcker (https://gitlab.com/aar642/shadowcker) project for the awesome work shadowroot was based off.
+
+#### Notice
+This project is not affliated with Shadow or Blade in any way shape or form!
+
