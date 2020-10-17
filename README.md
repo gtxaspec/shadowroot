@@ -8,7 +8,7 @@
 * Requires schroot and debootstrap packages
 
 # Installation:
--run ./setup_chroot.sh with super-user privileges to begin the installation.
+- run ./setup_chroot.sh with super-user privileges to begin the installation.
 
 # Running:
 Once installation is complete, look in your "Games" menu in your favorite window manager, or in a terminal type:
