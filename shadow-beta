@@ -23,6 +23,14 @@ if [[ $UID != 0 ]]; then
 else
    echo -e "Welcome to \e[30;48;5;226mShadowRoot\e[0m!"
    echo -e "\e[30;48;5;226mShadowRoot\e[0m: Loading, please wait..."
+
+   if test -f "/usr/local/bin/croutonversion"; then
+        sh -c "$DEBUG1 $DEBUG2 ~/AppImage/Shadow.AppImage --no-sandbox"
+        if [ "$1" = "--debug" ] ; then
+            killall -9 tail
+        fi
+   else
+
    #File discriptor to display function's output to the console in real time
    exec 3>&1
    #Check for a client update, if there is, after patching is done, restart the client
@@ -33,4 +41,6 @@ else
    fi
        #Clean up the file discriptor, close it
        exec 3>&-
+fi
+
 fi

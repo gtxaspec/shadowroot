@@ -2,6 +2,10 @@
 
 u="$SUDO_USER"
 
+if test -f "/usr/local/bin/croutonversion"; then
+   echo "This will not run on a chromebook. Use chromeroot.sh instead."
+else
+
 #Make sure we are root to setup the chroot
 if [[ $UID != 0 ]]; then
     echo "Please run this script with sudo or root privileges."
@@ -96,5 +100,7 @@ update-desktop-database
 ##echo "/home/$u/.config/pulse      /home/shadow-user/.config/pulse        none    rw,bind         0       0" >> /etc/schroot/shadowroot/fstab
 
 echo -e "\e[30;48;5;226mShadowRoot\e[0m installation is now complete! You may now run the client with the following terminal command: sudo shadow-prod"
+
+fi
 
 fi
