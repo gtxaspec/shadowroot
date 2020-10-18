@@ -25,7 +25,7 @@ else
    echo -e "\e[30;48;5;226mShadowRoot\e[0m: Loading, please wait..."
 
    if test -f "/usr/local/bin/croutonversion"; then
-        sh -c "$DEBUG1 $DEBUG2 ~/AppImage/Shadow.AppImage --no-sandbox"
+        sh -c "$DEBUG1 $DEBUG2 ~/AppImage/ShadowAlpha.AppImage --no-sandbox"
         if [ "$1" = "--debug" ] ; then
             killall -9 tail
         fi
