@@ -51,6 +51,14 @@ curl https://raw.githubusercontent.com/gtxaspec/shadowroot/master/crouton_shadow
   * After some time it will prompt you to set a username and password.  These will be used inside of crouton.
   * After some more time, and the installation completes, you will see the shadow clients in the "Games" menu.
 
+# Bugs
+* libinput doesn't work.  What does this mean? ex. cat /dev/input/event5 (the keyboard on my chromebook) outputs nothing in the crouton, while it works in the crosh shell. Running fuser -v /dev/input/event5 shows chrome Xorg and hexdump using the input.
+* the shadow launcher keyboard shortcut's dont work, fullscreen or otherwise, unless you change the default inside the crouton, applications>settings>keyboard. uncheck system defaults and change the chromebook to something else (logitech for example).  this will break brightness and volume keys
+
+# Not Working on:
+* Acer N15Q9 - no touchpad (works, from crosh, sudo enter-chroot, then sudo sudo apt-get install xserver-xorg-input-synaptics , exit, and then try again)
+
+
 # Why?
 * Running docker, there is a slight cursor lag on my system running the client, so as an alternative, we jailed Shadow in a chroot!  Also using docker, Shadow would not output audio to my bluetooth speaker.  With Shadowroot, it works! (pulseaudio!)
 
