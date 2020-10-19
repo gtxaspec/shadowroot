@@ -47,7 +47,9 @@ Once installation is complete, look in your "Games" menu in your favorite window
 ```
 curl https://raw.githubusercontent.com/gtxaspec/shadowroot/master/crouton_shadowroot_setup -o ~/Downloads/crouton_shadowroot_setup ;sudo install -Dt /usr/local/bin -m 755 ~/Downloads/crouton_shadowroot_setup ; sudo crouton_shadowroot_setup
 ```
-  * Installation will proceed, it may take a while to download and install everything. Afterwards, you will see the shadow clients in the "Games" menu.
+  * Installation will proceed, it may take a while to download and install everything.
+  * After some time it will prompt you to set a username and password.  These will be used inside of crouton.
+  * After some more time, and the installation completes, you will see the shadow clients in the "Games" menu.
 
 # Why?
 * Running docker, there is a slight cursor lag on my system running the client, so as an alternative, we jailed Shadow in a chroot!  Also using docker, Shadow would not output audio to my bluetooth speaker.  With Shadowroot, it works! (pulseaudio!)
