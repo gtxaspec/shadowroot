@@ -4,9 +4,10 @@
 
 ### Runs a shadow client in a (s)chroot.  Not using docker, no virtualization or containers.
 
+### Features & Info:
 * Works on Arch/Fedora/Debian (x86 only) based distros.
-* Works on Chromebooks, developer mode must be enabled (https://www.androidcentral.com/how-enable-developer-mode-chrome-os), uses crouton (https://github.com/dnschneid/crouton)
 * Requires schroot and debootstrap packages
+* Works on Chromebooks, developer mode must be enabled (https://www.androidcentral.com/how-enable-developer-mode-chrome-os), uses crouton (https://github.com/dnschneid/crouton)
 
 ## Non-Chromebook Installation:
 * run ./setup_chroot.sh with super-user privileges to begin the installation.
@@ -47,7 +48,6 @@ Once installation is complete, look in your "Games" menu in your favorite window
 curl https://raw.githubusercontent.com/gtxaspec/shadowroot/master/crouton_shadowroot_setup -o ~/Downloads/crouton_shadowroot_setup ;sudo install -Dt /usr/local/bin -m 755 ~/Downloads/crouton_shadowroot_setup ; sudo crouton_shadowroot_setup
 ```
   * Installation will proceed, it may take a while to download and install everything. Afterwards, you will see the shadow clients in the "Games" menu.
-
 
 # Why?
 * Running docker, there is a slight cursor lag on my system running the client, so as an alternative, we jailed Shadow in a chroot!  Also using docker, Shadow would not output audio to my bluetooth speaker.  With Shadowroot, it works! (pulseaudio!)
