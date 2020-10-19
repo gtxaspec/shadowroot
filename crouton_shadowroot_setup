@@ -29,9 +29,6 @@ sudo install -Dt /usr/local/bin -m 755 /home/$u/user/Downloads/crouton
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: Installing Ubuntu Bionic core to crouton"
 sudo crouton -t core -r bionic
 
-echo -e "\e[30;48;5;226mShadowRoot\e[0m: Running update on core to prevent errors"
-sudo crouton -u -t core -r bionic
-
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: Installing xserver to prevent errors"
 #apt-get install -y --no-install-recommends xserver-xorg-video-all xserver-xorg xserver-xorg-video-intel nano git
 sudo enter-chroot -x sh -c "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin ; apt-get install -y --no-install-recommends xserver-xorg-video-all xserver-xorg xserver-xorg-video-intel nano git"
@@ -40,7 +37,7 @@ echo -e "\e[30;48;5;226mShadowRoot\e[0m: Installing XFCE window manager to crout
 sudo crouton -u -t xfce -r bionic
 
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: Updating keyboard configuration in crouton"
-sudo crouton -r ubuntuversion -t keyboard -u
+sudo crouton -r bionic -t keyboard -u
 
 sudo enter-chroot -x sh -c "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin ; cd /root;git clone https://github.com/gtxaspec/shadowroot;cd shadowroot;./chromeroot.sh"
 
