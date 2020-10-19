@@ -1,7 +1,6 @@
 #!/bin/bash
-##install crouton BIONIC, XFCE
 
-u="$SUDO_USER"
+u=`getent passwd "1000" | cut -d: -f1`
 
 #Make sure we are root to setup the chroot
 if [[ $UID != 0 ]]; then
@@ -65,7 +64,9 @@ apt-get install -y --no-install-recommends \
     libinput10 \
     libsdl2-2.0 \
     alsa-utils \
+    xfce4-volumed \
 
+#Create the AppImage directory in the home folder where all the clients are stored
 mkdir -p /home/$u/AppImage/
 
 #Download clients
@@ -73,15 +74,15 @@ wget --no-check-certificate https://update.shadow.tech/launcher/prod/linux/ubunt
 wget --no-check-certificate https://update.shadow.tech/launcher/preprod/linux/ubuntu_18.04/ShadowBeta.AppImage -O /home/$u/AppImage/ShadowBeta.AppImage && \
 wget --no-check-certificate https://update.shadow.tech/launcher/testing/linux/ubuntu_18.04/ShadowAlpha.AppImage -O /home/$u/AppImage/ShadowAlpha.AppImage  && \
 
-
-#make clients executable
+#Give clients user and execute privileges
 chmod +x /home/$u/AppImage/*.AppImage
+chmod $u:$u -R /home/$u/AppImage
 
-#Install Icons for Window Manager
 #Create directory for icons
 mkdir /usr/share/icons/hicolor/0x0/
 mkdir /usr/share/icons/hicolor/0x0/apps
 
+#Install Icons for Window Manager
 /home/$u/AppImage/Shadow.AppImage --appimage-extract
 mv squashfs-root/usr/share/icons/hicolor/0x0/apps/shadow.png /usr/share/icons/hicolor/48x48/apps/
 rm -rf squashfs-root/
@@ -108,5 +109,8 @@ chmod +x /usr/local/bin/shadow-beta
 chmod +x /usr/local/bin/shadow-alpha
 chmod +x /usr/local/bin/shadow-prod
 chmod +x /usr/local/bin/stop-shadow
+
+echo -e "\e[30;48;5;226mShadowRoot\e[0m installation is now complete! Please restart now."
+echo -e "\e[30;48;5;226mShadowRoot\e[0m: After rebooting, you may now run the client with the following terminal command: sudo shadow-prod"
 
 fi
