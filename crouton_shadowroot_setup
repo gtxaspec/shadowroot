@@ -8,7 +8,7 @@ read -p "Proceed with installation? y/N?" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-u=`getent passwd "1000" | cut -d: -f1`
+#u=`getent passwd "1000" | cut -d: -f1`
 
 #Make sure we are root to setup the chroot
 if [[ $UID != 0 ]]; then
@@ -18,10 +18,10 @@ if [[ $UID != 0 ]]; then
 else
 
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: Downloading latest crouton installer"
-curl -L https://goo.gl/fd3zc -o /home/$u/user/Downloads/crouton
+curl -L https://goo.gl/fd3zc -o ~/Downloads/crouton
 
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: Installing crouton installer to host"
-sudo install -Dt /usr/local/bin -m 755 /home/$u/user/Downloads/crouton
+sudo install -Dt /usr/local/bin -m 755 ~/Downloads/crouton
 
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: Installing Ubuntu Bionic core to crouton"
 sudo crouton -t core -r bionic
