@@ -9,7 +9,7 @@
 * Requires schroot and debootstrap packages
 * Works on Chromebooks, developer mode must be enabled (https://www.androidcentral.com/how-enable-developer-mode-chrome-os), uses crouton (https://github.com/dnschneid/crouton)
 
-## Non-Chromebook Installation:
+# Non-Chromebook Installation:
 * run ./setup_chroot.sh with super-user privileges to begin the installation.
   * This process will use your distributions package manager to download and install:
     * schroot
@@ -29,12 +29,12 @@ Once installation is complete, look in your "Games" menu in your favorite window
 
 
 ## Uninstall:
-* Run ./remove_chroot.sh with super-user privileges to remove the chroot and associates files.
+* Run ./remove_chroot.sh with super-user privileges to remove the chroot and associated files.
 
 # Chromebook Installation
 
 ## Requirements
-* Crouton installed with Ubuntu 18.04 Bionic ONLY (other distributions or Ubuntu versions DO NOT WORK WITH SHADOW)
+* Crouton installed with **Ubuntu 18.04 Bionic** *ONLY* (other distributions or Ubuntu versions DO NOT WORK WITH SHADOW)
 
 ## Chromebook Installation
 * If you have CROUTON currently installed:
