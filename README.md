@@ -54,7 +54,7 @@ curl https://raw.githubusercontent.com/gtxaspec/shadowroot/master/crouton_shadow
 # Bugs
 * libinput doesn't work.  What does this mean? ex. cat /dev/input/event5 (the keyboard on my chromebook) outputs nothing in the crouton, while it works in the crosh shell. Running fuser -v /dev/input/event5 shows chrome Xorg and hexdump using the input.
 * the shadow launcher keyboard shortcut's dont work, fullscreen or otherwise, unless you change the default inside the crouton, applications>settings>keyboard. uncheck system defaults and change the chromebook to something else (logitech for example).  this will break brightness and volume keys
-* On intel 8th gen or greater systems, shadow doesn't work due to missing drives.
+* On intel 8th gen or greater systems, run sudo driver_install_ihd to install the right drivers.
 
 # Not Working on:
 * Acer N15Q9 - no touchpad (works, from crosh, sudo enter-chroot, then sudo sudo apt-get install xserver-xorg-input-synaptics , exit, and then try again)
