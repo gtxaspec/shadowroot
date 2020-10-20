@@ -1,13 +1,20 @@
 #!/bin/bash
 
+#Make sure we are root to setup the chroot
+if [[ $UID != 0 ]]; then
+    echo "Please run this script with sudo or root privileges."
+    echo "sudo $0 $*"
+    exit 1
+else
+
 echo "Installing intel media driver for Intel 8th Generation + Graphics"
 
 
-cp iHD_drv_video.so.gz /tmp/
+cp /root/shadowroot/iHD_drv_video.so.gz /tmp/
 gzip -d /tmp/iHD_drv_video.so.gz
 cp /tmp/iHD_drv_video.so /usr/lib/x86_64-linux-gnu/dri/
 
-cp libigdgmm.so.11.1.0.gz /tmp/
+cp /root/shadowroot/libigdgmm.so.11.1.0.gz /tmp/
 gzip -d /tmp/libigdgmm.so.11.1.0.gz
 cp /tmp/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/libigdgmm.so.11
@@ -15,3 +22,5 @@ ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11 /usr/lib/x86_64-linux-gnu/libigd
 
 export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
 export LIBVA_DRIVER_NAME=iHD
+
+fi
