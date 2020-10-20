@@ -20,7 +20,17 @@ cp /tmp/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/libigdgmm.so.11
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11 /usr/lib/x86_64-linux-gnu/libigdgmm.so
 
-export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
-export LIBVA_DRIVER_NAME=iHD
+apt-get install autoconf libtool libdrm-dev
+cd /root
+git clone https://github.com/intel/libva.git
+cd libva
+./autogen.sh --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu
+make
+make install
+
+echo LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri >> /etc/environment
+echo LIBVA_DRIVER_NAME=iHD >> /etc/environment
 
 fi
+
+
