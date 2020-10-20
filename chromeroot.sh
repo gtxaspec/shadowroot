@@ -103,6 +103,7 @@ cp shadow-beta /usr/local/bin/shadow-beta
 cp shadow-alpha /usr/local/bin/shadow-alpha
 cp shadow-prod /usr/local/bin/shadow-prod
 cp stop-shadow /usr/local/bin/stop-shadow
+cp driver_install_ihd /usr/local/bin/driver_install_ihd
 
 #Add execute privileges to shortcuts
 chmod +x /usr/local/bin/shadow-beta
