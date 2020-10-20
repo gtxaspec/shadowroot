@@ -6,6 +6,7 @@ echo "Installing intel media driver for Intel 8th Generation + Graphics"
 cp iHD_drv_video.so.gz /tmp/
 gzip -d /tmp/iHD_drv_video.so.gz
 cp /tmp/iHD_drv_video.so /usr/lib/x86_64-linux-gnu/dri/
+gzip -d /tmp/libigdgmm.so.11.1.0.gz
 cp libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/libigdgmm.so.11
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11 /usr/lib/x86_64-linux-gnu/libigdgmm.so
