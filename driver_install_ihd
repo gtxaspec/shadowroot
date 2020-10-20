@@ -20,7 +20,7 @@ cp /tmp/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/libigdgmm.so.11
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11 /usr/lib/x86_64-linux-gnu/libigdgmm.so
 
-apt-get install autoconf libtool libdrm-dev
+apt-get install -y --no-install-recommends autoconf libtool libdrm-dev
 cd /root
 git clone https://github.com/intel/libva.git
 cd libva
