@@ -31,6 +31,11 @@ make install
 echo LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri >> /etc/environment
 echo LIBVA_DRIVER_NAME=iHD >> /etc/environment
 
+export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
+export LIBVA_DRIVER_NAME=iHD
+
+echo "Installation complete"
+
 fi
 
 
