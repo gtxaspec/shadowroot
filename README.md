@@ -49,7 +49,7 @@ curl https://raw.githubusercontent.com/gtxaspec/shadowroot/master/crouton_shadow
 ```
   * Installation will proceed, it may take a while to download and install everything.
   * After some time it will prompt you to set a username and password.  These will be used inside of crouton.
-  * After some more time, and the installation completes, you will see the shadow clients in the "Games" menu.
+  * After some more time, and the installation completes, enter the crouton with sudo startxfce4, and you will see the shadow clients in the "Games" menu.
 
 # Bugs
 * libinput doesn't work.  What does this mean? ex. cat /dev/input/event5 (the keyboard on my chromebook) outputs nothing in the crouton, while it works in the crosh shell. Running fuser -v /dev/input/event5 shows chrome Xorg and hexdump using the input.
