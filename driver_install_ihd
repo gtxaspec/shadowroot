@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Installing intel media driver for Intel 8th Generation + Graphics"
+
+
+cp iHD_drv_video.so.gz /tmp/
+gzip -d /tmp/iHD_drv_video.so.gz
+cp /tmp/iHD_drv_video.so /usr/lib/x86_64-linux-gnu/dri/
+export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri/
+export LIBVA_DRIVER_NAME=iHD
