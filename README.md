@@ -57,7 +57,7 @@ curl https://raw.githubusercontent.com/gtxaspec/shadowroot/master/crouton_shadow
 * On intel 8th gen or greater systems, run sudo driver_install_ihd to install the right drivers.
 
 # Not Working on:
-* Acer N15Q9 - no touchpad (works, from crosh, sudo enter-chroot, then sudo sudo apt-get install xserver-xorg-input-synaptics , exit, and then try again)
+* ~~Acer N15Q9~~ - WORKS NOW
 
 
 # Why?
