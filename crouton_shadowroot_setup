@@ -29,8 +29,8 @@ sudo install -Dt /usr/local/bin -m 755 /home/$u/user/Downloads/crouton
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: Installing Ubuntu Bionic core to crouton"
 sudo crouton -t core -r bionic
 
+#Install additional packages inside the crouton
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: Installing xserver to prevent errors"
-#apt-get install -y --no-install-recommends xserver-xorg-video-all xserver-xorg xserver-xorg-video-intel nano git
 sudo enter-chroot -x sh -c "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin ; apt-get install -y --no-install-recommends xserver-xorg-video-all xserver-xorg xserver-xorg-video-intel nano git xterm xserver-xorg-input-synaptics xinit xserver-xorg-input-libinput xserver-xorg-input-all xserver-xorg-input-wacom"
 
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: Installing XFCE window manager and extras to crouton"

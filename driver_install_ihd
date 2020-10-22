@@ -11,19 +11,19 @@ else
 echo "Installing intel media driver for Intel 8th Generation + Graphics"
 
 #copy, extract, and install intel video driver
-cp /root/shadowroot/iHD_drv_video.so.gz /tmp/
+cp iHD_drv_video.so.gz /tmp/
 gzip -d /tmp/iHD_drv_video.so.gz
 cp /tmp/iHD_drv_video.so /usr/lib/x86_64-linux-gnu/dri/
 
 #copy, extract, and install libigdgmm to the intel driver works
-cp /root/shadowroot/libigdgmm.so.11.1.0.gz /tmp/
+cp libigdgmm.so.11.1.0.gz /tmp/
 gzip -d /tmp/libigdgmm.so.11.1.0.gz
 cp /tmp/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/libigdgmm.so.11
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11 /usr/lib/x86_64-linux-gnu/libigdgmm.so
 
 #install dependencies for libva compilation
-apt-get install -y --no-install-recommends autoconf libtool libdrm-dev
+apt-get install -y --no-install-recommends autoconf libtool libdrm-dev autotools-dev automake
 
 #download, compile and install libva
 cd /root
@@ -43,5 +43,3 @@ export LIBVA_DRIVER_NAME=iHD
 echo "Installation complete"
 
 fi
-
-
