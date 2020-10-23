@@ -123,4 +123,7 @@ mkdir -p /home/shadow-user/.cache/blade/
 mkdir -p /home/shadow-user/.local/share/keyrings/
 chown shadow-user:shadow-user -R /home/shadow-user
 
+##set env variables for dbus
+echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus >> /etc/environment
+
 #DONE!
