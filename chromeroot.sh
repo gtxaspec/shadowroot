@@ -113,7 +113,7 @@ chmod +x /usr/local/bin/stop-shadow
 
 #add env
 
-echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus >> /etc/environment
+#echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus >> /etc/environment
 
 echo -e "\e[30;48;5;226mShadowRoot\e[0m installation is now complete! Please restart now."
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: After rebooting, you may now run the client with the following terminal command: sudo shadow-prod"
