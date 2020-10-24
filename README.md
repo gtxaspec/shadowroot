@@ -19,9 +19,9 @@
 ## Running:
 Once installation is complete, look in your "Games" menu in your favorite window manager, or in a terminal type:
 
-* sudo shadow-prod
-* sudo shadow-beta
-* sudo shadow-alpha
+* shadow-prod
+* shadow-beta
+* shadow-alpha
 
 ### You need super-user privileges to run the shadow client using the chroot.
 
