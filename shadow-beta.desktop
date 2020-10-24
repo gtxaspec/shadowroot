@@ -4,5 +4,5 @@ Terminal=true
 Name=shadow-beta
 Exec=/usr/local/bin/shadow-beta
 Icon=shadow-preprod.png
-Categories=Network;FileTransfer;Game;
+Categories=Game
 Keywords=Games

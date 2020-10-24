@@ -8,15 +8,21 @@ if [[ $UID != 0 ]]; then
     exit 1
 else
 
+if [[ "$0" == "/usr/local/bin/driver_install_ihd" ]]; then
+DIR=/root/shadowroot/
+else
+DIR=
+fi
+
 echo "Installing intel media driver for Intel 8th Generation + Graphics"
 
 #copy, extract, and install intel video driver
-cp iHD_drv_video.so.gz /tmp/
+cp "$DIR"iHD_drv_video.so.gz /tmp/
 gzip -d /tmp/iHD_drv_video.so.gz
 cp /tmp/iHD_drv_video.so /usr/lib/x86_64-linux-gnu/dri/
 
 #copy, extract, and install libigdgmm to the intel driver works
-cp libigdgmm.so.11.1.0.gz /tmp/
+cp "$DIR"libigdgmm.so.11.1.0.gz /tmp/
 gzip -d /tmp/libigdgmm.so.11.1.0.gz
 cp /tmp/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/
 ln -s /usr/lib/x86_64-linux-gnu/libigdgmm.so.11.1.0 /usr/lib/x86_64-linux-gnu/libigdgmm.so.11

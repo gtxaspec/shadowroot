@@ -6,5 +6,5 @@ Exec=/usr/local/bin/shadow-prod
 Icon=shadow.png
 GenericName=Shadow Client
 Comment=Play Games
-Categories=Network;FileTransfer;Game;
+Categories=Game
 Keywords=Games

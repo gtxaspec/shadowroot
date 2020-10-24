@@ -4,5 +4,5 @@ Terminal=true
 Name=shadow-alpha
 Exec=/usr/local/bin/shadow-alpha
 Icon=shadow-testing.png
-Categories=Network;FileTransfer;Game;
+Categories=Game
 Keywords=Games

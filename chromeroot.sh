@@ -65,6 +65,8 @@ apt-get install -y --no-install-recommends \
     libsdl2-2.0 \
     alsa-utils \
     xfce4-volumed \
+    appmenu-gtk2-module \
+    appmenu-gtk3-module \
 
 #Create the AppImage directory in the home folder where all the clients are stored
 mkdir -p /home/$u/AppImage/

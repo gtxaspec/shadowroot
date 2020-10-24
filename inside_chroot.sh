@@ -5,6 +5,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 #Delete the symlink to resolved (if present)
 rm -f /etc/resolv.conf
+
 #Add public nameservers to reach the internet
 touch /etc/resolv.conf
 echo nameserver 8.8.8.8 > /etc/resolv.conf
@@ -129,7 +130,7 @@ chown shadow-user:shadow-user -R /home/shadow-user
 echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus >> /etc/environment
 echo HOME=/home/shadow-user >> /etc/environment
 
-##allow shadow-user to launch from schroot without password
+##allow shadow-user to launch from schroot without asking for a password due to su being in the chroot's command line
 sed -i '1i auth  sufficient                 pam_succeed_if.so use_uid user = shadow-user' /etc/pam.d/su
 sed -i '1i auth  [success=ignore default=1] pam_succeed_if.so user = shadow-user' /etc/pam.d/su
 
