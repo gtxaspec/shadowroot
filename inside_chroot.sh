@@ -65,6 +65,8 @@ apt-get install -y --no-install-recommends \
     libinput10 \
     libsdl2-2.0 \
     alsa-utils \
+    appmenu-gtk2-module \
+    appmenu-gtk3-module \
 
 #Fix locale errors that client may display when rnu
 locale-gen en_US.UTF-8
@@ -125,5 +127,10 @@ chown shadow-user:shadow-user -R /home/shadow-user
 
 ##set env variables for dbus
 echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus >> /etc/environment
+echo HOME=/home/shadow-user >> /etc/environment
+
+##allow shadow-user to launch from schroot without password
+sed -i '1i auth  sufficient                 pam_succeed_if.so use_uid user = shadow-user' /etc/pam.d/su
+sed -i '1i auth  [success=ignore default=1] pam_succeed_if.so user = shadow-user' /etc/pam.d/su
 
 #DONE!

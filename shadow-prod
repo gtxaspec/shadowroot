@@ -10,17 +10,11 @@ function schroot_init() {
 	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Beginning chroot session, session name:"
 	schroot --begin-session --chroot shadowroot --session-name shadow-prod
 	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Running Shadow in chroot"
-        sudo schroot --run-session --chroot shadow-prod --directory /home/shadow-user -- /bin/su shadow-user -c "$DEBUG1 $DEBUG2 /home/shadow-user/AppImage/Shadow.AppImage --no-sandbox"
+        schroot --run-session --chroot shadow-prod --directory /home/shadow-user -- /bin/su shadow-user -c "$DEBUG1 $DEBUG2 /home/shadow-user/AppImage/Shadow.AppImage --no-sandbox"
 	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Ending chroot session"
 	schroot --end-session --chroot shadow-prod
 }
 
-#Make sure that we have superuser privileges to begin the chroot session
-if [[ $UID != 0 ]]; then
-    echo "Please run shadow with sudo:"
-    echo "sudo $0 $*"
-    exit 1
-else
    echo -e "Welcome to \e[30;48;5;226mShadowRoot\e[0m!"
    echo -e "\e[30;48;5;226mShadowRoot\e[0m: Loading, please wait..."
 
@@ -41,6 +35,4 @@ else
    fi
        #Clean up the file discriptor, close it
        exec 3>&-
-fi
-
 fi

@@ -2,7 +2,7 @@
 Type=Application
 Terminal=true
 Name=shadow-beta
-Exec=sudo /usr/local/bin/shadow-beta
+Exec=/usr/local/bin/shadow-beta
 Icon=shadow-preprod.png
 Categories=Network;FileTransfer;Game;
 Keywords=Games

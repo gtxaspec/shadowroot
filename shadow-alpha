@@ -15,12 +15,6 @@ function schroot_init() {
 	schroot --end-session --chroot shadow-alpha
 }
 
-#Make sure that we have superuser privileges to begin the chroot session
-if [[ $UID != 0 ]]; then
-    echo "Please run shadow with sudo:"
-    echo "sudo $0 $*"
-    exit 1
-else
    echo -e "Welcome to \e[30;48;5;226mShadowRoot\e[0m!"
    echo -e "\e[30;48;5;226mShadowRoot\e[0m: Loading, please wait..."
 
@@ -41,6 +35,4 @@ else
    fi
        #Clean up the file discriptor, close it
        exec 3>&-
-fi
-
 fi

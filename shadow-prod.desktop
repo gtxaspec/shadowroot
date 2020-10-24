@@ -2,7 +2,7 @@
 Type=Application
 Terminal=true
 Name=shadow-stable
-Exec=sudo /usr/local/bin/shadow-prod
+Exec=/usr/local/bin/shadow-prod
 Icon=shadow.png
 GenericName=Shadow Client
 Comment=Play Games
