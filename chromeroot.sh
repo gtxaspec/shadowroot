@@ -105,6 +105,8 @@ cp shadow-beta /usr/local/bin/shadow-beta
 cp shadow-alpha /usr/local/bin/shadow-alpha
 cp shadow-prod /usr/local/bin/shadow-prod
 cp stop-shadow /usr/local/bin/stop-shadow
+cp stream-watcher /usr/local/bin/stream-watcher
+
 #ln -s $PWD/driver_install_ihd /usr/local/bin/driver_install_ihd
 
 #Add execute privileges to shortcuts
@@ -112,10 +114,10 @@ chmod +x /usr/local/bin/shadow-beta
 chmod +x /usr/local/bin/shadow-alpha
 chmod +x /usr/local/bin/shadow-prod
 chmod +x /usr/local/bin/stop-shadow
+chmod 646 /etc/group
 
-#add env
-
-#echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus >> /etc/environment
+#add stream-watcher to user's .profile
+echo "/usr/local/bin/stream-watcher &" >> /home/$u/.profile
 
 echo -e "\e[30;48;5;226mShadowRoot\e[0m installation is now complete! Please restart now."
 echo -e "\e[30;48;5;226mShadowRoot\e[0m: After rebooting, you may now run the client with the following terminal command: sudo shadow-prod"

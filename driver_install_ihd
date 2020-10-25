@@ -8,6 +8,7 @@ if [[ $UID != 0 ]]; then
     exit 1
 else
 
+#if we run as sudo, then run from the install directory inside /root, if not, run from wherever $PWD is.
 if [[ "$0" == "/usr/local/bin/driver_install_ihd" ]]; then
 DIR=/root/shadowroot/
 else

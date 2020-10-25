@@ -1,0 +1,41 @@
+#!/bin/bash
+
+#ugly hack that forces the shadow client to disable libinput,
+#by temporarily disabling the input group in /etc/group
+
+enable_1=false
+enable_2=false
+
+#loop to run continuously
+while [ true ]; do
+#get the shadow PID
+  pid=`pgrep -f "Shadow --server"`
+
+  if [ -z $pid ]; then
+	#if the shadow streamer is NOT running, wait until it runs.
+	if [ $enable_2 = false ]; then
+	echo "Waiting for Shadow streamer to launch"
+	enable_2=true
+	enable_1=false
+	fi
+  else
+	#once the shadow streamer launches, disable the input group
+	if [ $enable_1 = false ]; then
+	enable_1=true
+	enable_2=false
+	echo "Streamer client detected"
+	#disable input
+	cp /etc/group /tmp/group
+	sed -i 's/input:/#&/' /tmp/group
+	cp /tmp/group /etc/group
+#	echo "disable input group"
+
+	#once the streamer has launches, wait 5 seconds and re-enable the input group
+	sleep 5
+	cp /etc/group /tmp/group2
+	sed -i 's/\#//g' /tmp/group2
+	cp /tmp/group2 /etc/group
+#	echo "enable input group"
+	fi
+  fi
+done
