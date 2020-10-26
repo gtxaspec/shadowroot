@@ -5,7 +5,7 @@
 ### Runs a shadow client in a (s)chroot.  Not using docker, no virtualization or containers.
 
 ### Features & Info:
-* Works on Arch/Fedora/Debian (x86 only) based distros.
+* Works on Arch/Fedora/Debian (x86_64 only) based distros.
 * Requires schroot and debootstrap packages
 * Works on Chromebooks, developer mode must be enabled (https://www.androidcentral.com/how-enable-developer-mode-chrome-os), uses crouton (https://github.com/dnschneid/crouton)
 
