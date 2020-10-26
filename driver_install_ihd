@@ -40,13 +40,14 @@ cd libva
 make
 make install
 
+#delete temp files
+rm -f /tmp/libigdgmm.so.11.1.0
+rm -f /tmp/iHD_drv_video.so
+
 #add exports to env so it works as the user
 echo LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri >> /etc/environment
 echo LIBVA_DRIVER_NAME=iHD >> /etc/environment
 
-export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
-export LIBVA_DRIVER_NAME=iHD
-
-echo "Installation complete"
+echo "Installation complete, please log out of crouton, and log back in for changes to be effective."
 
 fi
