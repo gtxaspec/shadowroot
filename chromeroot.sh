@@ -107,7 +107,7 @@ cp shadow-prod /usr/local/bin/shadow-prod
 cp stop-shadow /usr/local/bin/stop-shadow
 cp stream-watcher /usr/local/bin/stream-watcher
 
-#ln -s $PWD/driver_install_ihd /usr/local/bin/driver_install_ihd
+ln -s $PWD/driver_install_ihd /usr/local/bin/driver_install_ihd
 
 #Add execute privileges to shortcuts
 chmod +x /usr/local/bin/shadow-beta
