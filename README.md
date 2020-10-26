@@ -32,7 +32,7 @@ Once installation is complete, look in your "Games" menu in your favorite window
 * Run ./remove_chroot.sh with super-user privileges to remove the chroot and associated files.
 
 ## PC bugs
-* If you have pointer or keyboard issues, you may disable libinput.  Comment out the "input" group in /var/shadowroot/etc/group and the Shadow Client will disable libinpu support.
+* If you have pointer or keyboard issues, you may disable libinput.  Comment out the "input" group in /var/shadowroot/etc/group and the Shadow Client will disable libinput support.
 
 # Chromebook Installation
 
