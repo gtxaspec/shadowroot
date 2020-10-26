@@ -11,6 +11,7 @@ else
 
 #Set variables so apt doesn't require any user interaction during installation
 export DEBIAN_FRONTEND=noninteractive
+
 apt-get update && \
 apt-get install -y --no-install-recommends nano
 
@@ -120,6 +121,6 @@ chmod 646 /etc/group
 echo "/usr/local/bin/stream-watcher &" >> /home/$u/.profile
 
 echo -e "\e[30;48;5;226mShadowRoot\e[0m installation is now complete! Please restart now."
-echo -e "\e[30;48;5;226mShadowRoot\e[0m: After rebooting, you may now run the client with the following terminal command: sudo shadow-prod"
+echo -e "\e[30;48;5;226mShadowRoot\e[0m: After rebooting, you may now run the client with the following terminal command: shadow-prod"
 
 fi
