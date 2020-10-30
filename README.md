@@ -37,7 +37,7 @@ Once installation is complete, look in your "Games" menu in your favorite window
 # Chromebook Installation
 
 ## Requirements
-* A Chromebook with an x86_64 cpu architecture
+* Chromebook with an x86_64 cpu architecture
 * If you are installing inside an existing crouton installation, you MUST be using **Ubuntu 18.04 Bionic** *ONLY* (other distributions or Ubuntu versions DO NOT WORK WITH SHADOW)
 
 ## Chromebook Installation

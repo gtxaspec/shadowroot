@@ -72,6 +72,9 @@ cp inside_chroot.sh /var/shadowroot/root/inside_chroot.sh
 #Create an empty machine-id file (for pulseaudio)
 touch /var/shadowroot/etc/machine-id
 
+#copy local resolv to chroot
+cp /etc/resolv.conf /var/shadowroot/etc/resolv.conf
+
 #Execute inside script in the chroot
 schroot -c shadowroot --directory /root -- /root/inside_chroot.sh
 

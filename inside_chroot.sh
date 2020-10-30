@@ -3,14 +3,6 @@
 #Set variables so apt doesn't require any user interaction during installation
 export DEBIAN_FRONTEND=noninteractive
 
-#Delete the symlink to resolved (if present)
-rm -f /etc/resolv.conf
-
-#Add public nameservers to reach the internet
-touch /etc/resolv.conf
-echo nameserver 8.8.8.8 > /etc/resolv.conf
-echo nameserver 8.8.4.4 > /etc/resolv.conf
-
 #Install wget and nano and locales
 apt-get update && \
 apt-get install -y --no-install-recommends wget nano locales
