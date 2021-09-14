@@ -99,6 +99,12 @@ cp /var/shadowroot/usr/share/icons/hicolor/0x0/apps/shadow-testing.png /usr/shar
 cp *.desktop /usr/share/applications/
 update-desktop-database
 
+#Install schroot monitoring service
+cp shadowroot.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable shadowroot.service
+systemctl start shadowroot.service
+
 ##Add lines to fstab for pulseaudio sound fix- remove this if no longer needed.
 ##echo "/home/$u/.config/pulse      /home/shadow-user/.config/pulse        none    rw,bind         0       0" >> /etc/schroot/shadowroot/fstab
 

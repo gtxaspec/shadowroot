@@ -1,14 +1,18 @@
 #!/bin/bash
 
+##
+##This script executes inside the chroot, and sets up the environment for the Shadow Client
+##
+
 #Set variables so apt doesn't require any user interaction during installation
 export DEBIAN_FRONTEND=noninteractive
 
-#Install wget and nano and locales
+#Install wget and nano and locales, first.
 apt-get update && \
 apt-get install -y --no-install-recommends wget nano locales
 ##language-pack-en-base
 
-#Download software and updates
+#Download required software packages for Shadow client to function properly.
 apt-get install -y --no-install-recommends \
     dbus \
     fuse \
@@ -53,6 +57,7 @@ apt-get install -y --no-install-recommends \
     unzip \
     vainfo \
     vdpau-va-driver \
+    sudo \
     wget \
     xserver-xorg-video-intel \
     libinput10 \
@@ -60,8 +65,14 @@ apt-get install -y --no-install-recommends \
     alsa-utils \
     appmenu-gtk2-module \
     appmenu-gtk3-module \
+    firefox \
+    xdg-utils \
+    libpci-dev \
+    libxcb-render-util0 \
+    libxcb-image0 \
+    libcurl4
 
-#Fix locale errors that client may display when rnu
+#Fix locale errors that client may display when run
 locale-gen en_US.UTF-8
 ##TO-DO: match the host's locale
 
@@ -69,7 +80,7 @@ locale-gen en_US.UTF-8
 useradd -ms /bin/bash shadow-user
 groupadd fuse
 
-#match group IDs to real system so keyboard input doesn't break in the VM
+#Match group IDs to real system so keyboard input doesn't break in the VM
 groupmod -og `stat -c '%g' /dev/fb0` video
 groupmod -og `stat -c '%g' /dev/input/event0` input
 
@@ -94,11 +105,11 @@ wget --no-check-certificate https://update.shadow.tech/launcher/testing/linux/ub
 #make clients executable
 chmod +x /home/shadow-user/AppImage/*.AppImage
 
-#Install Icons for Window Manager
-#Create directory for icons
+#Install Menu entry icons for Window Manager, create directory for icons
 mkdir /usr/share/icons/hicolor/0x0/
 mkdir /usr/share/icons/hicolor/0x0/apps
 
+#Extract menu entry icons from clients
 /home/shadow-user/AppImage/Shadow.AppImage --appimage-extract
 mv squashfs-root/usr/share/icons/hicolor/0x0/apps/shadow.png /usr/share/icons/hicolor/0x0/apps/
 rm -rf /root/squashfs-root/
@@ -111,19 +122,28 @@ rm -rf /root/squashfs-root/
 mv squashfs-root/usr/share/icons/hicolor/0x0/apps/shadow-testing.png /usr/share/icons/hicolor/0x0/apps/
 rm -rf /root/squashfs-root/
 
-#create local directories
+#Create local directories
 mkdir -p /home/shadow-user/.config/
 mkdir -p /home/shadow-user/.config/pulse
 mkdir -p /home/shadow-user/.cache/blade/
 mkdir -p /home/shadow-user/.local/share/keyrings/
 chown shadow-user:shadow-user -R /home/shadow-user
+touch /home/shadow-user/uuid
+
+#setup custom script to run at lanuch
+touch /home/shadow-user/custom.sh
+chmod +x /home/shadow-user/custom.sh
 
 ##set env variables for dbus
 echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus >> /etc/environment
 echo HOME=/home/shadow-user >> /etc/environment
 
 ##allow shadow-user to launch from schroot without asking for a password due to su being in the chroot's command line
+echo "shadow-user     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 sed -i '1i auth  sufficient                 pam_succeed_if.so use_uid user = shadow-user' /etc/pam.d/su
 sed -i '1i auth  [success=ignore default=1] pam_succeed_if.so user = shadow-user' /etc/pam.d/su
 
-#DONE!
+#set browser for new shadow online authentication, must be run as the shadow-user
+runuser -l shadow-user -c 'xdg-settings set default-web-browser firefox.desktop'
+
+exit 0

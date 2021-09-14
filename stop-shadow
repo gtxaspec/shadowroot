@@ -1,4 +1,14 @@
 #!/bin/bash
 
-echo "Killing streamer client"
-ps -A -o pid,cmd|grep 'Shadow --server' | grep -v grep |head -n 1 | awk '{print $1}' | xargs kill -9
+
+echo "Killing Shadow streamer client"
+ps -A -o pid,cmd|grep 'Shadow --server' | grep -v grep |head -n 1 | awk '{print $1}' | xargs kill -9 >/dev/null 2>&1
+
+if [ "$1" == "stop_old" ] ; then
+echo "Stopping old Shadowroot instances"
+schroot --end-session --chroot shadow-prod
+schroot --end-session --chroot shadow-beta
+schroot --end-session --chroot shadow-alpha
+fi
+
+exit 0
