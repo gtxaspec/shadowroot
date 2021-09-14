@@ -22,9 +22,9 @@
 ## Running:
 Once installation is complete, look in your "Games" menu in your favorite window manager, or in a terminal type:
 
-* sudo shadow-prod
-* sudo shadow-beta
-* sudo shadow-alpha
+* shadow-prod
+* shadow-beta
+* shadow-alpha
 
 - bonus: add the --debug argument to pass all log output to the console.
 
