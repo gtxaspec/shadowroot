@@ -48,16 +48,6 @@ if [[ $UID != 0 ]]; then
     echo "sudo $0 $*"
     exit 1
 else
-
-   if  test -f "/usr/local/bin/croutonversion"; then
-	remove_ui
-	echo "Remove client AppImage archives"
-	rm -rf ~/AppImage/
-	echo "Remove client cache"
-	rm -rf ~/.cache/blade/
-   else
 	remove_schroot
 	remove_ui
-fi
-
 fi
