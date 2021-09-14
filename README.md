@@ -7,6 +7,7 @@
 ### Features & Info:
 * Works on Arch/Fedora/Debian (x86_64 only) based distros.
 * Requires schroot and debootstrap packages
+* Does not work with WAYLAND, as the client doesn't support it yet.
 * Does not work on chromebooks, use the native android client.
 
 # PC Installation:
@@ -21,9 +22,9 @@
 ## Running:
 Once installation is complete, look in your "Games" menu in your favorite window manager, or in a terminal type:
 
-* shadow-prod
-* shadow-beta
-* shadow-alpha
+* sudo shadow-prod
+* sudo shadow-beta
+* sudo shadow-alpha
 
 - bonus: add the --debug argument to pass all log output to the console.
 
