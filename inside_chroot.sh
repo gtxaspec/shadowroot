@@ -137,6 +137,7 @@ chmod +x /home/shadow-user/custom.sh
 ##set env variables for dbus
 echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus >> /etc/environment
 echo HOME=/home/shadow-user >> /etc/environment
+echo XDG_RUNTIME_DIR=/run/usr/1000 >> /etc/environment
 
 ##allow shadow-user to launch from schroot without asking for a password due to su being in the chroot's command line
 echo "shadow-user     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
