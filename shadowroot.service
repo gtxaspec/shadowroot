@@ -1,0 +1,12 @@
+[Unit]
+Description=Shadowroot schroot monitoring service
+After=basic.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/stop-shadow stop_old
+ExecStop=/usr/local/bin/stop-shadow stop_old
+
+[Install]
+WantedBy=multi-user.target
