@@ -15,6 +15,13 @@ function schroot_init() {
 	schroot --end-session --chroot shadow-prod
 }
 
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+function ctrl_c() {
+        echo -e "\e[30;48;5;226mShadowRoot\e[0m: Ending chroot session"
+        schroot --end-session --chroot shadow-prod
+}
+
    echo -e "Welcome to \e[30;48;5;226mShadowRoot\e[0m!"
    echo -e "\e[30;48;5;226mShadowRoot\e[0m: Loading, please wait..."
 
