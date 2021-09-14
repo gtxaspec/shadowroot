@@ -105,10 +105,21 @@ systemctl daemon-reload
 systemctl enable shadowroot.service
 systemctl start shadowroot.service
 
+#setup graphics environment variables
+rm -f /tmp/vainfo.txt
+vainfo > /tmp/vainfo.txt 2>&1
+DRIVER_NAME=`cat /tmp/vainfo.txt | grep Trying | sed 's:^[^/]*::;s/ .*//' | sed -e 's,.*/,,' | cut -d_ -f1`
+
+if [ "$DRIVER_NAME" = "iHD" ]; then
+
+echo LIBVA_DRIVER_NAME=i965 >> /var/shadowroot/etc/environment
+
+fi
+
 ##Add lines to fstab for pulseaudio sound fix- remove this if no longer needed.
 ##echo "/home/$u/.config/pulse      /home/shadow-user/.config/pulse        none    rw,bind         0       0" >> /etc/schroot/shadowroot/fstab
 
-echo -e "\e[30;48;5;226mShadowRoot\e[0m installation is now complete! You may now run the client with the following terminal command: sudo shadow-prod"
+echo -e "\e[30;48;5;226mShadowRoot\e[0m installation is now complete! You may now run the client with the following terminal command: shadow-prod"
 
 fi
 
