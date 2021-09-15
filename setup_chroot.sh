@@ -78,6 +78,16 @@ cp /etc/resolv.conf /var/shadowroot/etc/resolv.conf
 #Execute inside script in the chroot
 schroot -c shadowroot --directory /root -- /root/inside_chroot.sh
 
+#Create uuid file so schroot does not complain, populate with host uuid, allows user to customize chroot uuid
+touch /var/shadowroot/home/shadow-user/uuid
+chmod 666 /var/shadowroot/home/shadow-user/uuid
+cat /sys/devices/virtual/dmi/id/product_uuid > /var/shadowroot/home/shadow-user/uuid
+sed '$ s/#//' -i /etc/schroot/shadowroot/fstab
+
+#Copy custom.sh file to home directory, set permissions
+cp custom.sh /var/shadowroot/home/shadow-user/custom.sh
+chmod 777 /var/shadowroot/home/shadow-user/custom.sh
+
 #Copy launcher shortcuts to local host
 cp shadow-beta /usr/local/bin/shadow-beta
 cp shadow-alpha /usr/local/bin/shadow-alpha

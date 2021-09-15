@@ -23,6 +23,4 @@
 /etc/machine-id      /etc/machine-id        none    ro,bind         0       0
 ##/dev/fuse       /dev/fuse        none    rw,bind         0       0
 /sys/devices/virtual/input       /sys/devices/virtual/input        none    rw,bind         0       0
-
-#Uncomment the below line to change the system uuid to something else, make sure the file exists.
 #/var/shadowroot/home/shadow-user/uuid /sys/devices/virtual/dmi/id/product_uuid         none    rw,bind         0       0

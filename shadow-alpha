@@ -1,12 +1,15 @@
 #!/bin/bash
 
-if [ "$1" = "--debug" ] ; then
+function custom_script() {
+    echo -e "\e[30;48;5;226mCUSTOM ENABLED, custom.sh will be RUN!\e[0m"
+    CUSTOM="sudo /home/shadow-user/custom.sh &"
+}
+
+function debug_console_log() {
     echo -e "\e[30;48;5;226mDEBUG ENABLED, ALL LOGS WILL BE PASSED TO THE CONSOLE!\e[0m"
     DEBUG1="tail -F ~/.cache/blade/shadow/shadow-launcher.log &"
     DEBUG2="tail -F ~/.cache/blade/shadow/shadow.log &"
-elif [ "$1" = "--custom" ] ; then
-    CUSTOM="sudo /home/shadow-user/custom.sh &"
-fi
+}
 
 function schroot_init() {
 	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Beginning chroot session, session name:"
@@ -17,12 +20,20 @@ function schroot_init() {
 	schroot --end-session --chroot shadow-alpha
 }
 
-# trap ctrl-c and call ctrl_c()
 trap ctrl_c INT
 function ctrl_c() {
         echo -e "\e[30;48;5;226mShadowRoot\e[0m: Ending chroot session"
         schroot --end-session --chroot shadow-alpha
 }
+
+if { [ "$1" == "--custom" ] && [ "$2" == "--debug" ]; } || { [ "$1" == "--debug" ] && [ "$2" == "--custom" ]; } then
+	custom_script
+	debug_console_log
+elif [ "$1" = "--custom" ]; then
+	custom_script
+elif [ "$1" = "--debug" ]; then
+	debug_console_log
+fi
 
    echo -e "Welcome to \e[30;48;5;226mShadowRoot\e[0m!"
    echo -e "\e[30;48;5;226mShadowRoot\e[0m: Loading, please wait..."

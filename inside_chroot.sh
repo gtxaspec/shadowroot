@@ -128,11 +128,6 @@ mkdir -p /home/shadow-user/.config/pulse
 mkdir -p /home/shadow-user/.cache/blade/
 mkdir -p /home/shadow-user/.local/share/keyrings/
 chown shadow-user:shadow-user -R /home/shadow-user
-touch /home/shadow-user/uuid
-
-#setup custom script to run at lanuch
-touch /home/shadow-user/custom.sh
-chmod +x /home/shadow-user/custom.sh
 
 ##set env variables for dbus
 echo DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus >> /etc/environment
