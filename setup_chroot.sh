@@ -31,6 +31,9 @@ else
 #If user is using a debian based distro, run this
 apt-get update
 apt-get install -y --no-install-recommends schroot debootstrap
+#aids in debugging
+apt-get install -y  libva-glx2 vainfo
+
 fi
 
 
