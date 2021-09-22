@@ -3,7 +3,7 @@
 u="$SUDO_USER"
 
 if test -f "/usr/local/bin/croutonversion"; then
-   echo "This will not run on a chromebook. Use chromeroot.sh instead."
+   echo "This will not run on a chromebook. Use the native android client instead."
 else
 
 #Make sure we are root to setup the chroot
