@@ -41,7 +41,7 @@ fi
    #File discriptor to display function's output to the console in real time
    exec 3>&1
    #Check for a client update, if there is, after patching is done, restart the client
-   if [[ $(schroot_init | tee /dev/fd/3) == *triggered* ]]; then
+   if [[ $(schroot_init | tee /dev/fd/3) == *downloaded* ]]; then
        echo -e "\e[30;48;5;226mShadowRoot\e[0m: Update Found, restarting Shadow..."
        schroot_init
        exit 1;
