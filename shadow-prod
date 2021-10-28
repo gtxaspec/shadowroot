@@ -33,6 +33,9 @@ elif [ "$1" = "--custom" ]; then
 	custom_script
 elif [ "$1" = "--debug" ]; then
 	debug_console_log
+elif [ "$1" = "--help" ]; then
+	echo -e "Shadowroot launcher, Shadow [production branch] in a chroot!\n\nUsage: shadow-prod [OPTION]\n  --debug                      Display shadow-launcher and shadow-streamer logs in console window\n  --custom                     Run the custom.sh script located in the HOME directory of the chroot\n  --help                       Displays this help message"
+	exit
 fi
 
    echo -e "Welcome to \e[30;48;5;226mShadowRoot\e[0m!"
