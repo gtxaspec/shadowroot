@@ -10,6 +10,7 @@
 * Does not work with WAYLAND, as the client doesn't support it yet.
 * Does not work on chromebooks, use the native android client.
 * Supports Intel Sandybridge / Ivybridge Hardware (Tested on Lenovo X220 / T520 / X230)
+* Run Shadow Alpha in a VM using Software Rendering (qEMU)
 
 # PC Installation:
 ### You need super-user privileges to install shadowroot!
