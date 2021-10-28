@@ -29,6 +29,7 @@ Once installation is complete, look in your "Games" menu in your favorite window
 
 - args: add the --debug argument to pass all log output to the console.
 - args: add the --custom arugment to run the script 'custom.sh' located in /var/shadowroot/home/shadow-user/custom.sh on launch.
+- args: add the --help for help message.
 
 
 ## Uninstall:
