@@ -9,6 +9,7 @@
 * Requires schroot and debootstrap packages
 * Does not work with WAYLAND, as the client doesn't support it yet.
 * Does not work on chromebooks, use the native android client.
+* Supports Intel Sandybridge / Ivybridge Hardware (Tested on Lenovo X220 / T520 / X230)
 
 # PC Installation:
 ### You need super-user privileges to install shadowroot!
@@ -26,7 +27,8 @@ Once installation is complete, look in your "Games" menu in your favorite window
 * shadow-beta
 * shadow-alpha
 
-- bonus: add the --debug argument to pass all log output to the console.
+- args: add the --debug argument to pass all log output to the console.
+- args: add the --custom arugment to run the script 'custom.sh' located in /var/shadowroot/home/shadow-user/custom.sh on launch.
 
 
 ## Uninstall:
