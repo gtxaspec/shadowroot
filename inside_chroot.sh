@@ -71,11 +71,10 @@ apt-get install -y --no-install-recommends \
     libxcb-render-util0 \
     libxcb-image0 \
     libcurl4 \
-    libxcb-keysyms1
+    libxcb-keysyms1 \
     libxcb-randr0 \
     libxcb-xinput0 \
     libxcb-cursor0
-
 
 #Fix locale errors that client may display when run
 locale-gen en_US.UTF-8
