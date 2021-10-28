@@ -15,7 +15,7 @@ function schroot_init() {
 	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Beginning chroot session, session name:"
 	schroot --begin-session --chroot shadowroot --session-name shadow-prod
 	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Running Shadow in chroot"
-        schroot --run-session --chroot shadow-prod --directory /home/shadow-user -- /bin/su shadow-user -c "$DEBUG1 $DEBUG2 $CUSTOM /home/shadow-user/AppImage/Shadow.AppImage --no-sandbox"
+        schroot --run-session --chroot shadow-prod --directory /home/shadow-user -- sudo /bin/su shadow-user -c "$DEBUG1 $DEBUG2 $CUSTOM /home/shadow-user/AppImage/Shadow.AppImage --no-sandbox"
 	echo -e "\e[30;48;5;226mShadowRoot\e[0m: Ending chroot session"
 	schroot --end-session --chroot shadow-prod
 }
